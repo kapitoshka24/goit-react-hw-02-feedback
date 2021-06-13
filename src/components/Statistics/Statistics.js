@@ -1,5 +1,6 @@
 import React from "react";
 import shortId from "shortid";
+import PropTypes from "prop-types";
 
 const Statistics = ({ options, total, positivePercentage, capitalize }) => (
   <>
@@ -16,5 +17,12 @@ const Statistics = ({ options, total, positivePercentage, capitalize }) => (
     <p>Positive feedback: {positivePercentage()}%</p>
   </>
 );
+
+Statistics.propTypes = {
+  options: PropTypes.objectOf(PropTypes.number),
+  total: PropTypes.func.isRequired,
+  positivePercentage: PropTypes.func.isRequired,
+  capitalize: PropTypes.func.isRequired,
+};
 
 export default Statistics;
